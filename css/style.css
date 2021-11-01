@@ -5,11 +5,9 @@
   font-family: "Roboto Condensed", sans-serif;
   text-decoration: none;
   scroll-behavior: smooth;
-  background: #222;
   color: #f5f5dc;
-}
-body {
-  background: #222;
+  background: #e5e5e5;
+  color: #1f7a8c;
 }
 .head {
   display: flex;
@@ -18,17 +16,19 @@ body {
   justify-content: center;
   margin: 0 20px 0 20px;
   border-radius: 0 0 20px 20px;
-  border-bottom: 3px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
+  border-bottom: 8px solid #1f7a8c;
+  border-left: 4px solid #1f7a8c;
+  border-right: 4px solid #1f7a8c;
   padding: 20px;
-  background: linear-gradient(#1f7a8c, #333);
+  color: #1f7a8c;
+  background: #f5f5dc;
 }
 .head__title {
   text-align: center;
   font-size: 5em;
   font-weight: 700;
   background: none;
+  color: #1f7a8c;
 }
 .head__text {
   display: flex;
@@ -38,18 +38,14 @@ body {
   font-weight: 700;
   background: none;
   margin-bottom: 5px;
+  color: #1f7a8c;
 }
 .election {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #222;
-  height: 550px;
-}
-.election__title {
-  font-size: 3em;
-  margin-bottom: 30px;
+  height: 510px;
 }
 .election__content {
   width: 100%;
@@ -60,14 +56,15 @@ body {
 .election__modes {
   width: 90%;
   height: 90%;
-  margin: 20px;
+  margin: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 6px;
-  background: linear-gradient(#1f7a8c, #333);
-  border: 1px solid #fff;
+  border-radius: 20px;
+  border: 8px solid #1f7a8c;
+  gap: 0.5em;
+  background: #f5f5dc;
 }
 .election__name {
   display: flex;
@@ -80,14 +77,30 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 3em;
+  font-size: 5em;
 }
 .election__modes span {
   display: flex;
   text-align: center;
-  font-size: 3em;
+  font-size: 4em;
   margin-top: 15px;
   background: none;
+}
+/*  -----------------------------------footer----------------------------------- */
+.footer {
+  color: #1f7a8c;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  border-top: 4px #1f7a8c solid;
+  background: #f5f5dc;
+}
+.footer-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer a {
+  color: #1f7a8c;
 }
 /* media queries */
 @media (max-width: 600px) {
