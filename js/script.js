@@ -1,18 +1,33 @@
-const tiles = Array.from(document.querySelectorAll(".board__tile"));
+const board = Array.from(document.querySelectorAll(".board__tile"));
+
+const spots = new Array(board.length).fill(null);
 
 const players = ["O", "X"];
-let currentPlayer = players[1];
+let currentPlayer = players[1]; //initial player is X
 
-const spot = new Array(tiles.length).fill(null);
+function definePlayer() {
+  if (currentPlayer === players[1]) {
+    currentPlayer = players[0];
+  } else {
+    currentPlayer = players[1];
+  }
+}
+function hasWon() {
+  //look if someone won
+}
 
-tiles.forEach((tile) => {
+board.forEach((tile) => {
   tile.addEventListener("click", () => {
     let tileID = tile.id;
-    if (!spot[tileID]) {
-      console.log(tileID);
-      spot[tileID] = currentPlayer;
+    console.log(tileID);
+
+    if (!spots[tileID]) {
+      spots[tileID] = currentPlayer;
       tile.innerHTML = currentPlayer;
-      console.log(spot);
+      definePlayer();
     }
   });
 });
+
+console.log(board);
+console.log(spots);
