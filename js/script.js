@@ -13,6 +13,21 @@ function definePlayer() {
     currentPlayer = players[1];
   }
 }
+
+function fullBoard() {
+  for (let i = 0; i < spots.length; i++) {
+    if (spots[i] === null) {
+      return false;
+    }
+  }
+
+  spots.forEach((tile) => {
+    if (typeof tile === "string") {
+      return true;
+    }
+  });
+  return false;
+}
 function hasWon() {
   //Vertical Options
   //036
@@ -112,6 +127,11 @@ board.forEach((tile) => {
       if (hasWon()) {
         console.log(`${currentPlayer} wins`);
         text.innerHTML = `${currentPlayer} WON :c`;
+      } else {
+        if (fullBoard()) {
+          console.log(`It's a Tie`);
+          text.innerHTML = `It's a Tie`;
+        }
       }
       definePlayer();
     }
