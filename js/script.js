@@ -1,9 +1,10 @@
 const board = Array.from(document.querySelectorAll(".board__tile"));
-
 const spots = new Array(board.length).fill(null);
-
 const players = ["O", "X"];
 let currentPlayer = players[1]; //initial player is X
+
+const text = document.getElementById("set__text");
+const restartBtn = document.getElementById("restart");
 
 function definePlayer() {
   if (currentPlayer === players[1]) {
@@ -13,16 +14,18 @@ function definePlayer() {
   }
 }
 function hasWon() {
+  //Vertical Options
   //036
   //147
-  //358
+  //258
   let flag = false;
+
   if (
     spots[0] === currentPlayer &&
     spots[3] === currentPlayer &&
     spots[6] === currentPlayer
   ) {
-    console.log(`${currentPlayer} wins vertical c1`);
+    console.log("On Vertical c1");
     flag = true;
     return flag;
   }
@@ -36,7 +39,7 @@ function hasWon() {
     return flag;
   }
   if (
-    spots[3] === currentPlayer &&
+    spots[2] === currentPlayer &&
     spots[5] === currentPlayer &&
     spots[8] === currentPlayer
   ) {
@@ -44,6 +47,7 @@ function hasWon() {
     flag = true;
     return flag;
   }
+  //Horizontal Options
   //012
   //345
   //358
@@ -74,6 +78,7 @@ function hasWon() {
     flag = true;
     return flag;
   }
+  //Diagonal Options
   //048
   //246
   if (
@@ -94,6 +99,7 @@ function hasWon() {
     flag = true;
     return flag;
   }
+
   return flag;
 }
 
@@ -104,12 +110,21 @@ board.forEach((tile) => {
       spots[tileID] = currentPlayer;
       tile.innerHTML = currentPlayer;
       if (hasWon()) {
-        console.log(spots);
-        console.log(currentPlayer);
+        console.log(`${currentPlayer} wins`);
+        text.innerHTML = `${currentPlayer} WON :c`;
       }
       definePlayer();
     }
   });
+});
+
+restartBtn.addEventListener("click", () => {
+  spots.fill(null);
+  board.forEach((tile) => {
+    tile.innerHTML = null;
+  });
+  text.innerHTML = "Can a Human Overcome me?";
+  currentPlayer = players[1];
 });
 
 console.log(board);
