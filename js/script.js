@@ -16,59 +16,85 @@ function hasWon() {
   //036
   //147
   //358
-  if (spots[0] === currentPlayer) {
-    if (spots[3] === currentPlayer && spots[6] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical c1`);
-      return true;
-    }
+  let flag = false;
+  if (
+    spots[0] === currentPlayer &&
+    spots[3] === currentPlayer &&
+    spots[6] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical c1`);
+    flag = true;
+    return flag;
   }
-  if (spots[1] === currentPlayer) {
-    if (spots[4] === currentPlayer && spots[7] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical c2`);
-      return true;
-    }
+  if (
+    spots[1] === currentPlayer &&
+    spots[4] === currentPlayer &&
+    spots[7] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical c2`);
+    flag = true;
+    return flag;
   }
-  if (spots[3] === currentPlayer) {
-    if (spots[5] === currentPlayer && spots[8] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical c3`);
-      return true;
-    }
+  if (
+    spots[3] === currentPlayer &&
+    spots[5] === currentPlayer &&
+    spots[8] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical c3`);
+    flag = true;
+    return flag;
   }
   //012
   //345
   //358
-  if (spots[0] === currentPlayer) {
-    if (spots[1] === currentPlayer && spots[2] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical r1`);
-      return true;
-    }
+  if (
+    spots[0] === currentPlayer &&
+    spots[1] === currentPlayer &&
+    spots[2] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical r1`);
+    flag = true;
+    return flag;
   }
-  if (spots[3] === currentPlayer) {
-    if (spots[4] === currentPlayer && spots[5] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical r2`);
-      return true;
-    }
+  if (
+    spots[3] === currentPlayer &&
+    spots[4] === currentPlayer &&
+    spots[5] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical r2`);
+    flag = true;
+    return flag;
   }
-  if (spots[6] === currentPlayer) {
-    if (spots[7] === currentPlayer && spots[8] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical r3`);
-      return true;
-    }
+  if (
+    spots[6] === currentPlayer &&
+    spots[7] === currentPlayer &&
+    spots[8] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical r3`);
+    flag = true;
+    return flag;
   }
   //048
   //246
-  if (spots[0] === currentPlayer) {
-    if (spots[4] === currentPlayer && spots[8] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical d1`);
-      return true;
-    }
+  if (
+    spots[0] === currentPlayer &&
+    spots[4] === currentPlayer &&
+    spots[8] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical d1`);
+    flag = true;
+    return flag;
   }
-  if (spots[2] === currentPlayer) {
-    if (spots[4] === currentPlayer && spots[6] === currentPlayer) {
-      console.log(`${currentPlayer} wins vertical d2`);
-      return true;
-    }
+  if (
+    spots[2] === currentPlayer &&
+    spots[4] === currentPlayer &&
+    spots[6] === currentPlayer
+  ) {
+    console.log(`${currentPlayer} wins vertical d2`);
+    flag = true;
+    return flag;
   }
+  return flag;
 }
 
 board.forEach((tile) => {
@@ -77,11 +103,11 @@ board.forEach((tile) => {
     if (!spots[tileID]) {
       spots[tileID] = currentPlayer;
       tile.innerHTML = currentPlayer;
-      definePlayer();
-      console.log(spots);
       if (hasWon()) {
+        console.log(spots);
         console.log(currentPlayer);
       }
+      definePlayer();
     }
   });
 });
